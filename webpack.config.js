@@ -3,7 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: ["babel-polyfill", './src/index.js'],
     module: {
         rules: [
             { test: /\.js$/, use: 'babel-loader' },
