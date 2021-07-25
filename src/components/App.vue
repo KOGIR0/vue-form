@@ -13,6 +13,7 @@
             <input required type="email" placeholder="email address" v-model="email">
         </div>
         <button type="submit" class="submit-button">submit</button>
+        <div>{{infoMessage}}</div>
     </form>
 </template>
 
@@ -24,7 +25,8 @@ export default {
             userName: "",
             age: 0,
             phone: "",
-            email: ""
+            email: "",
+            infoMessage: ""
         }
     },
     methods: {
@@ -46,6 +48,8 @@ export default {
                 },
                 body: JSON.stringify(data)
             });
+            this.infoMessage = "form accepted";
+            setTimeout(() => this.infoMessage = "", 5000);
         }
     }
 }
