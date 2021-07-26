@@ -18,9 +18,17 @@ connection.connect(function(err){
     }
 });
 
-function addUser(user)
+interface IUser
 {
-    userInfo = [];
+    name: string,
+    age: number,
+    phone: string,
+    email: string
+}
+
+export function addUser(user : IUser)
+{
+    let userInfo = [];
     Object.keys(user).forEach((key) => {
         userInfo.push(user[key]);
     });
@@ -40,5 +48,3 @@ function addUser(user)
     }
     console.log("Connection closed");
 })*/
-
-module.exports = { addUser };

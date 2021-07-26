@@ -6,8 +6,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && webpack --mode production",
-    "serve": "gnome-terminal -x node server.js && webpack serve --mode development",
-    "start-dev-server": "ts-node-dev server.tsx"
+    "serve": "gnome-terminal -x npm run-script start-dev-server && webpack serve --mode development",
+    "start-dev-server": "ts-node-dev server.ts"
   },
   "author": "",
   "license": "ISC",
@@ -38,6 +38,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.2.5",
+    "ts-node-dev": "^1.1.8"
   }
 }

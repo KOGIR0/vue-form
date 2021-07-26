@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require("cors")
-let { addUser } = require('./src/database/connection');
+import { addUser } from './src/database/connection'
 
 
 let app = express();
