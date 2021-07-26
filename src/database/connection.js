@@ -18,10 +18,27 @@ connection.connect(function(err){
     }
 });
 
-connection.end(function(err){
+function addUser(user)
+{
+    userInfo = [];
+    Object.keys(user).forEach((key) => {
+        userInfo.push(user[key]);
+    });
+    console.log(userInfo);
+    const sql = `INSERT INTO users(name, age, phone, email) VALUES("${user.name}", ${+user.age}, "${user.phone}", "${user.email}")`;
+ 
+    connection.query(sql, user, function(err, results) {
+        if(err) console.log(err);
+        else console.log("Данные добавлены");
+    });
+}
+
+/*connection.end(function(err){
     if(err)
     {
         return console.log("Error: " + err.message);
     }
     console.log("Connection closed");
-})
+})*/
+
+module.exports = { addUser };
