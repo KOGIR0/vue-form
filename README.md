@@ -13,13 +13,13 @@ Server adds this user data to MySQL Database
 
 ## Database
 
-create table in your database
+create table in your database \
 users(name, age, phone, email)
 
-create .env file with next data
-HOST=localhost
-DATABASE_USER=your_database_username
-DATABASE=database_name
+create .env file with next data \
+HOST=localhost \
+DATABASE_USER=your_database_username \
+DATABASE=database_name \
 PASSWORD=password_to_your_database
 
 # Scripts
