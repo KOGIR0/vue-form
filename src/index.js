@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import Form from './components/Form.vue';
+import Users from './components/Users.vue';
 
 new Vue({
     el: '#app',
-    render: h => h(Form),
+    render: h => h(Users),
 });
