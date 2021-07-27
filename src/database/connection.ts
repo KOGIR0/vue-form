@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
     user: process.env.DATABASE_USER,
     database: process.env.DATABASE,
     password: process.env.PASSWORD
-});
+}).promise();
 
 connection.connect(function(err){
     if(err)
@@ -38,6 +38,16 @@ export function addUser(user : IUser)
     connection.query(sql, user, function(err, results) {
         if(err) console.log(err);
         else console.log("Данные добавлены");
+    });
+}
+
+export function getUsers()
+{
+    return connection.query("SELECT * FROM users")
+    .then((results, fields) => {
+        console.log("Data aquired");
+        console.log(results[0]);
+        return results[0];
     });
 }
 

@@ -51,6 +51,18 @@ export default {
             this.infoMessage = "form accepted";
             setTimeout(() => this.infoMessage = "", 5000);
         }
+    },
+    beforeMount()
+    {
+        fetch("http://localhost:8000/")
+        .then((res) => {
+            res.json().then(data => {
+                console.log(data);
+            })
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 }
 </script>
