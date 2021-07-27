@@ -39,7 +39,7 @@ export default {
                 "phone": this.phone,
                 "email": this.email
             }
-            let response = await fetch("http://localhost:8000/", {
+            await fetch("http://localhost:8000/", {
                 method: 'POST',
                 mode: 'cors',
                 headers: {
