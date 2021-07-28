@@ -65,6 +65,7 @@ export default {
     border-radius: 5px;
     width: 250px;
     text-align: center;
+    margin: 5px auto 0 auto;
 
     .input-field
     {
