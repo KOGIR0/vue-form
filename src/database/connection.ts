@@ -51,6 +51,16 @@ export function getUsers()
     });
 }
 
+export function deleteUser(id: number)
+{
+    const sql = `DELETE from users WHERE id=${id}`;
+ 
+    connection.query(sql)
+    .then((err, results) => {
+        console.log("User deleted");
+    });
+}
+
 /*connection.end(function(err){
     if(err)
     {

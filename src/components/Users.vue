@@ -12,6 +12,7 @@
                 <td>{{data.age}}</td>
                 <td>{{data.phone}}</td>
                 <td>{{data.email}}</td>
+                <button v-on:click="() => deleteUser(data.id)">Delete</button>
             </tr>
         </table>
     </div>
@@ -25,18 +26,41 @@ export default {
             users: []
         }
     },
+    methods: {
+        deleteUser: async function(id)
+        {
+            let data = {
+                id: id
+            }
+            console.log(data);
+            await fetch("http://localhost:8000/delete", {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                    "Access-Control-Allow-Origin": "*"
+                },
+                body: JSON.stringify(data)
+            });
+            this.getUsers();
+        },
+        getUsers: function()
+        {
+            fetch("http://localhost:8000/")
+            .then((res) => {
+                res.json().then(data => {
+                    console.log(data);
+                    this.users = data;
+                })
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
+    },
     mounted()
     {
-        fetch("http://localhost:8000/")
-        .then((res) => {
-            res.json().then(data => {
-                console.log(data);
-                this.users = data;
-            })
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        this.getUsers();
     }
 }
 </script>

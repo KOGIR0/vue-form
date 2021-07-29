@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require("cors")
-import { addUser, getUsers } from './src/database/connection'
+import { addUser, getUsers, deleteUser } from './src/database/connection'
 
 
 let app = express();
@@ -13,6 +13,14 @@ app.post("/", (req, res) => {
     console.log(req.body);
     addUser(req.body);
     res.send("OK");
+})
+
+app.post("/delete", (req, res) => {
+    console.log(req.body);
+    deleteUser(req.body.id);
+    getUsers().then(data => {
+        res.send(data);
+    });
 })
 
 app.get("/", (req, res) => {
