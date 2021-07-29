@@ -35,7 +35,3 @@ runs server and app in development mode
 ## npm run-script run-dev-server
 
 runs server in development mode
-
-# TODO
-
-- Add check if user already exists in database

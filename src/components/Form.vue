@@ -38,8 +38,8 @@ export default {
                 "age": this.age,
                 "phone": this.phone,
                 "email": this.email
-            }
-            await fetch("http://localhost:8000/", {
+            };
+            await fetch("http://localhost:8000/user", {
                 method: 'POST',
                 mode: 'cors',
                 headers: {

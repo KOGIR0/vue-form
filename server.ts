@@ -9,7 +9,7 @@ app.options('*', cors());
 app.use(express.json());
 
 
-app.post("/", (req, res) => {
+app.post("/user", (req, res) => {
     console.log(req.body);
     addUser(req.body);
     res.send("OK");
@@ -23,7 +23,7 @@ app.post("/delete", (req, res) => {
     });
 })
 
-app.get("/", (req, res) => {
+app.get("/users", (req, res) => {
     let data = getUsers();
     data.then(data => {
         res.send(data);
