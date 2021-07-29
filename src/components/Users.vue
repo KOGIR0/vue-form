@@ -46,7 +46,7 @@ export default {
         },
         getUsers: function()
         {
-            fetch("http://localhost:8000/")
+            fetch("http://localhost:8000/users")
             .then((res) => {
                 res.json().then(data => {
                     console.log(data);
